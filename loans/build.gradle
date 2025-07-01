@@ -1,11 +1,26 @@
+
 plugins {
-	id 'java'
+	id 'java-library'
+	id 'maven-publish'
 	id 'org.springframework.boot' version '3.5.3'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id("com.google.cloud.tools.jib") version "3.4.5"
 }
 
+
+def archivesBaseName = 'loans'
 group = 'com.eazybytes'
 version = '0.0.1-SNAPSHOT'
+description = 'Microservice for Loans'
+
+jib {
+	from {
+		image = "eclipse-temurin:17-jre" // or any base image you prefer
+	}
+	to {
+		image = "sujaysp05/$archivesBaseName:v1"
+	}
+}
 
 java {
 	toolchain {
@@ -13,14 +28,11 @@ java {
 	}
 }
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
-
 repositories {
 	mavenCentral()
+	maven {
+		url = uri('https://repo.maven.apache.org/maven2/')
+	}
 }
 
 dependencies {
@@ -35,6 +47,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			from(components.java)
+		}
+	}
 }
 
 tasks.named('test') {

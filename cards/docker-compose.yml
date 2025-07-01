@@ -1,0 +1,30 @@
+services:
+  accounts:
+    image: "sujaysp05/accounts:v1"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+
+  loans:
+    image: "sujaysp05/loans:v1"
+    container_name: accounts-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+
+  cards:
+    image: "sujaysp05/cards:v1"
+    container_name: accounts-ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
