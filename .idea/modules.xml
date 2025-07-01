@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Microservices.iml" filepath="$PROJECT_DIR$/.idea/Microservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/accounts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/accounts.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cards.main.iml" filepath="$PROJECT_DIR$/.idea/modules/cards.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/loans.main.iml" filepath="$PROJECT_DIR$/.idea/modules/loans.main.iml" />
     </modules>
   </component>
