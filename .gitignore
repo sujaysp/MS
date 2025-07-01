@@ -7,6 +7,36 @@
 # BlueJ files
 *.ctxt
 
+# --- Mac/Linux ---
+*.DS_Store
+
+# --- Spring Boot Specific ---
+/target/
+*.war
+*.jar
+
+# --- Jib Cache ---
+jib-cache/
+
+# --- Build System ---
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# --- OS / IDEs ---
+*.class
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
