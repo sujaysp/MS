@@ -1,13 +1,15 @@
-
-
+server:
+  port: 8090
 spring:
   application:
-    name: loans
+    name: "loans"
+  profiles:
+    active: "prod"
   datasource:
-    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
     username: sa
     password: ''
-    url: jdbc:h2:mem:testdb
   h2:
     console:
       enabled: true
@@ -17,15 +19,15 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
-  profiles:
-    active:
-      - "qa"
+    import: "optional:configserver:http://localhost:8071/"
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
 
-build:
-  version: 3.0
-
-server:
-  port: 8090
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
